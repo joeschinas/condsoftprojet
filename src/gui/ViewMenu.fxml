@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="430.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="305.0" layoutY="190.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Registrar Usuario" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="190.0" />
+      <Button layoutX="305.0" layoutY="148.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Registar Novo Inquilino" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="237.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Cadastrar Apartamento" textAlignment="CENTER" AnchorPane.bottomAnchor="159.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="237.0" />
+      <Button layoutX="207.0" layoutY="343.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="166.0" text="Regulamento do Predio e Regras (baixar PDF)" wrapText="true" />
+      <Button layoutX="305.0" layoutY="285.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Chamados De Manutenção" />
+      <Button layoutX="99.0" layoutY="285.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Usuarios Cadastrados" />
+      <Button layoutX="99.0" layoutY="237.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Reserva de Espaço" />
+      <Label layoutX="257.0" layoutY="82.0" prefHeight="28.0" prefWidth="65.0" text="Menu">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="99.0" layoutY="148.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text=" Apartamentos" />
+      <Button layoutX="99.0" layoutY="190.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text=" Inquilinos" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="56.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Inicio" />
+              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Logout" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
