@@ -22,5 +22,6 @@
          </font>
       </Label>
       <PasswordField layoutX="156.0" layoutY="292.0" prefHeight="25.0" prefWidth="179.0" promptText="Inserir Senha" />
+      <Label layoutX="98.0" layoutY="325.0" prefHeight="17.0" prefWidth="297.0" textAlignment="JUSTIFY" textFill="#e10202" />
    </children>
 </AnchorPane>
