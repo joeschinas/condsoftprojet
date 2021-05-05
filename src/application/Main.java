@@ -16,11 +16,11 @@ public class Main extends Application {
 	public void start(Stage primaryStage) { 
 		try { 
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml")); 
-		 ScrollPane scrollPane = loader.load(); 
+		 Parent  parent = loader.load(); 
 		 
-		 scrollPane.setFitToHeight(true);
-		 scrollPane.setFitToWidth(true);
-		 Scene mainScene = new Scene(scrollPane); 
+		// scrollPane.setFitToHeight(true);
+		// scrollPane.setFitToWidth(true);
+		 Scene mainScene = new Scene(parent); 
 		 primaryStage.setScene(mainScene); 
 		 primaryStage.setTitle("CONDSOFT"); 
 		 primaryStage.show(); 

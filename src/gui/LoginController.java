@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginController implements Initializable{
@@ -19,14 +20,16 @@ public class LoginController implements Initializable{
 	@FXML
 	private TextField labelName;
 	@FXML
-	private TextField labelSenha;
+	private PasswordField labelSenha;
 	@FXML
 	public void onMyButtonClick() {
 		Alerts.showAlert("Alert title", "Alert header", "Hello", AlertType.INFORMATION);
 	}
+	
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		Constraints.setTextFieldMaxLength(labelSenha, 10);
+		
 		
 	}
 	
