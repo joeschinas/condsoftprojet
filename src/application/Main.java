@@ -7,20 +7,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 
 
 public class Main extends Application {
-
+	
+	//private static Scene mainScene;
+	
 	@Override
 	public void start(Stage primaryStage) { 
 		try { 
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml")); 
+<<<<<<< HEAD
 		 Parent  parent = loader.load(); 
 		 
 		// scrollPane.setFitToHeight(true);
 		// scrollPane.setFitToWidth(true);
 		 Scene mainScene = new Scene(parent); 
+=======
+		 Parent Parent = loader.load(); 
+		 
+	//	 scrollPane.setFitToHeight(true);
+		// scrollPane.setFitToWidth(true);
+		 
+		 Scene mainScene = new Scene(Parent); 
+>>>>>>> db1f7cb09bb8fd9052e64226d6900b9cfad4d048
 		 primaryStage.setScene(mainScene); 
 		 primaryStage.setTitle("CONDSOFT"); 
 		 primaryStage.show(); 
@@ -30,6 +40,9 @@ public class Main extends Application {
 		
 	}
 	
+		/*public static Scene mainScene() {
+			return mainScene;
+		}**/
 	public static void main(String[] args) {
 		launch(args);
 	}

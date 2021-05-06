@@ -4,6 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+<<<<<<< HEAD
+=======
+import java.sql.PreparedStatement;
+>>>>>>> db1f7cb09bb8fd9052e64226d6900b9cfad4d048
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,6 +28,10 @@ public class Db {
 				throw new DbException(e.getMessage());
 			}
 		}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> db1f7cb09bb8fd9052e64226d6900b9cfad4d048
 		return conn;
 	}
 	
@@ -66,5 +74,13 @@ public class Db {
 				throw new DbException(e.getMessage());
 			}
 		}
+<<<<<<< HEAD
 	}
 }
+=======
+
+	}
+
+	
+	}
+>>>>>>> db1f7cb09bb8fd9052e64226d6900b9cfad4d048
