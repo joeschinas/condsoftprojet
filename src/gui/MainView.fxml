@@ -14,14 +14,14 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="labelName" layoutX="156.0" layoutY="252.0" prefHeight="25.0" prefWidth="179.0" promptText="Inserir Usuario" />
-      <Button fx:id="ButtonLogin" layoutX="222.0" layoutY="357.0" mnemonicParsing="false" text="Entrar" />
+      <TextField fx:id="nicknameField" layoutX="156.0" layoutY="252.0" prefHeight="25.0" prefWidth="179.0" promptText="Inserir Usuario" />
+      <Button fx:id="submitButton" layoutX="222.0" layoutY="357.0" mnemonicParsing="false" onAction="#login" text="Entrar" />
       <Label layoutX="196.0" layoutY="212.0" prefHeight="17.0" prefWidth="101.0" text="Acessar conta">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <PasswordField layoutX="156.0" layoutY="292.0" prefHeight="25.0" prefWidth="179.0" promptText="Inserir Senha" />
+      <PasswordField fx:id="senhaField" layoutX="156.0" layoutY="292.0" prefHeight="25.0" prefWidth="179.0" promptText="Inserir Senha" />
       <Label layoutX="98.0" layoutY="325.0" prefHeight="17.0" prefWidth="297.0" textAlignment="JUSTIFY" textFill="#e10202" />
    </children>
 </AnchorPane>

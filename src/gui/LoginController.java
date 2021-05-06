@@ -1,62 +1,88 @@
 package gui;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.sql.SQLException;
 
-import db.Db;
 import gui.util.Alerts;
-import gui.util.Constraints;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
-public class LoginController implements Initializable{
+import model.dao.impl.*;
 
-	@FXML
-	private Button buttonLogin;
-	@FXML
-	private TextField labelName;
-	@FXML
-	private PasswordField labelSenha;
-	
-	@FXML 
-	private Label lblErrors;
-	
-	   	Connection conn = null;
-	    PreparedStatement preparedStatement = null;
-	    ResultSet resultSet = null;
-	
-	    public void LoginControll() {
-	        conn = Db.getConnection();
-	    }
-	 @Override
-	    public void initialize(URL url, ResourceBundle rb) {
-	        // TODO
-	        if (conn == null) {
-	        	
-	        	Alerts.showAlert("Error", "Fail Connection", "Verificar inicialização com banco", AlertType.ERROR);
-	           
-	        } else {
-	        	
-	            lblErrors.setTextFill(Color.GREEN);
-	            lblErrors.setText("Server is up : Good to go");
-	        }
-	    }
+public class LoginController {
 
-	  private void setLblError(Color color, String text) {
-	        lblErrors.setTextFill(color);
-	        lblErrors.setText(text);
-	        System.out.println(text);
-	    }
+    @FXML
+    private TextField nicknameField;
+
+    @FXML
+    private PasswordField senhaField;
+
+    @FXML
+    private Button submitButton;
+
+    @FXML
+   public void login(ActionEvent event) throws SQLException {
+
+    	
+     //  Window owner = submitButton.getScene().getWindow();
+
+     //   System.out.println(nicknameField.getText());
+      //  System.out.println(senhaField.getText());
+
+        if (nicknameField.getText().isEmpty()) {
+        	Alerts.showAlert("errors", null, "Pfvr entre com seu nickname", AlertType.ERROR);
+           
+            
+        }
+        if (senhaField.getText().isEmpty()) {
+        	Alerts.showAlert("errors", null, "Pfvr entre com sua senha", AlertType.ERROR);
+  
+            
+        }
+
+        String nickname = nicknameField.getText();
+        String senha = senhaField.getText();
+
+        JdbcDAO jdbcDao = new JdbcDAO();
+        boolean flag = jdbcDao.validate(nickname, senha);
+
+        if (!flag) {
+            Alerts.showAlert("Digite seu nickname e senha corretamente", null, null, AlertType.ERROR);
+        } else {
+        	
+            infoBox(event);
+       	 
+        }
+    }
+
+    public void infoBox(ActionEvent event) {
+    	try {
+
+            //add you loading or delays - ;-)
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            //stage.setMaximized(true);
+            stage.close();
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml")));
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+  
 }
-
-
+}
