@@ -7,42 +7,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.paint.Color;
 
 
 public class Main extends Application {
-	
-	//private static Scene mainScene;
-	
+	private static Scene mainScene;
 	@Override
 	public void start(Stage primaryStage) { 
 		try { 
 		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml")); 
-<<<<<<< HEAD
 		 Parent  parent = loader.load(); 
 		 
-		// scrollPane.setFitToHeight(true);
+		
 		// scrollPane.setFitToWidth(true);
-		 Scene mainScene = new Scene(parent); 
-=======
-		 Parent Parent = loader.load(); 
-		 
-	//	 scrollPane.setFitToHeight(true);
-		// scrollPane.setFitToWidth(true);
-		 
-		 Scene mainScene = new Scene(Parent); 
->>>>>>> db1f7cb09bb8fd9052e64226d6900b9cfad4d048
+		 mainScene = new Scene(parent); 
 		 primaryStage.setScene(mainScene); 
-		 primaryStage.setTitle("CONDSOFT"); 
+		 primaryStage.setTitle("CSP Gestor"); 
 		 primaryStage.show(); 
 		 } catch (IOException e) { 
 		 e.printStackTrace(); 
 		 }
 		
 	}
-	
-		/*public static Scene mainScene() {
-			return mainScene;
-		}**/
+	public static Scene getMainScene() {
+		return mainScene;
+		
+	}
 	public static void main(String[] args) {
 		launch(args);
 	}

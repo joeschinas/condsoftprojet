@@ -9,13 +9,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="430.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root_AnchorPane" prefHeight="430.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController">
    <children>
-      <Button layoutX="305.0" layoutY="190.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Registrar Usuario" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="190.0" />
-      <Button layoutX="205.0" layoutY="291.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="166.0" text="Regulamento do Predio e Regras (baixar PDF)" wrapText="true" />
-      <Button layoutX="305.0" layoutY="237.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Chamados De Manutenção" />
-      <Button layoutX="305.0" layoutY="148.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Usuarios Cadastrados" />
-      <Button layoutX="99.0" layoutY="237.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text="Reserva de Espaço" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="576.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Inicio" />
+              <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAbout" text="About" />
+              <MenuItem mnemonicParsing="false" text="Logout" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button fx:id="Register" layoutX="305.0" layoutY="240.0" mnemonicParsing="false" onAction="#User" prefHeight="25.0" prefWidth="148.0" text="Registrar Morador" AnchorPane.bottomAnchor="214.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="123.0" AnchorPane.topAnchor="240.0" />
+      <Button layoutX="175.0" layoutY="291.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="223.0" text="Regulamento do Predio e Regras (baixar PDF)" wrapText="true" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="291.0" />
+      <Button layoutX="105.0" layoutY="157.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Chamados De Manutenção" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="157.0" />
+      <Button layoutX="305.0" layoutY="157.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Usuarios Cadastrados" AnchorPane.bottomAnchor="297.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="123.0" AnchorPane.topAnchor="157.0" />
+      <Button layoutX="105.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Reserva de Espaço" AnchorPane.bottomAnchor="214.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="240.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="47.0" prefHeight="63.0" prefWidth="148.0" text="Menu" textAlignment="CENTER" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="47.0">
          <font>
             <Font name="Candara Bold" size="21.0" />
@@ -24,18 +35,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
-      <Button layoutX="99.0" layoutY="148.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text=" Apartamentos" />
-      <Button layoutX="99.0" layoutY="190.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="166.0" text=" Inquilinos" />
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="65.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Inicio" />
-              <MenuItem mnemonicParsing="false" text="About" />
-              <MenuItem mnemonicParsing="false" text="Logout" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+      <Button fx:id="Apartamento" layoutX="305.0" layoutY="197.0" mnemonicParsing="false" onAction="#CheckApt" prefHeight="25.0" prefWidth="148.0" text=" Apartamentos" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="123.0" AnchorPane.topAnchor="197.0" />
+      <Button layoutX="105.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text=" Inquilinos" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="197.0" />
    </children>
 </AnchorPane>
