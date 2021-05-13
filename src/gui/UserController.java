@@ -12,12 +12,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class UserController {
 	@FXML
-	private Button Apartamento;
-	
+	private AnchorPane root_AnchorPane;
 
 	@FXML
 	private MenuItem menuItemInicio;
@@ -32,20 +32,23 @@ public class UserController {
 
 
 	 public void onItemInicio(ActionEvent event) {
-	   	 try {
-
-	   		Node node = (Node) event.getSource();
-		 	Stage stage = (Stage) node.getScene().getWindow();    		 
-		 
-		 	Parent parent = FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml"));
-			Scene scene = new Scene(parent);
-			stage.setScene(scene);
-			stage.show();
-
-	        } catch (IOException ex) {
-	            System.err.println(ex.getMessage());
-	        }
-	   	return;
+	   	 
+	   		try {
+	   		 
+	   		//add you loading or delays - ;-)
+	             Node node = (Node) event.getSource();
+	             Stage stage = (Stage) node.getScene().getWindow();
+	             //stage.setMaximized(true);
+	             stage.close();
+	             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml")));
+	             stage.setScene(scene);
+	             stage.show();    
+	             
+	            
+	           } catch (IOException ex) {
+	               System.err.println(ex.getMessage());
+	           }
+	      	return;
 	    }
 
 	public void initialize(URL arg0, ResourceBundle arg1) {

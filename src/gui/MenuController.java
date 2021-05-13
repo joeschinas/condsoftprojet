@@ -28,7 +28,8 @@ public class MenuController implements Initializable{
 	private AnchorPane root_AnchorPane;
 	@FXML
 	private Button Apartamento;
-	
+	@FXML
+	private Button listTenant;
 	@FXML
 	private Button Register;
 	
@@ -85,6 +86,27 @@ public class MenuController implements Initializable{
     }
     @FXML
     public void User(ActionEvent event ) {
+    		
+    	try {
+    			    
+    		 Stage stage = null;
+    	     Parent myNewScene = null;
+    	     stage = (Stage) Register.getScene().getWindow();
+             myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewUserRegistrer.fxml"));
+            
+             Scene scene = new Scene(myNewScene);
+             stage.setScene(scene);
+             stage.setTitle("Register");
+             stage.show();     
+             
+            
+           } catch (IOException ex) {
+               System.err.println(ex.getMessage());
+           }
+      	return;
+       }
+    @FXML
+    public void ListPerson(ActionEvent event ) {
     		
     	try {
     			    
