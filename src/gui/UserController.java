@@ -34,15 +34,18 @@ public class UserController {
 	 public void onItemInicio(ActionEvent event) {
 	   	 
 	   		try {
-	   		 
+	   		
 	   		//add you loading or delays - ;-)
-	             Node node = (Node) event.getSource();
-	             Stage stage = (Stage) node.getScene().getWindow();
-	             //stage.setMaximized(true);
-	             stage.close();
-	             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml")));
+	   				Stage stage = null;
+	    	     Parent myNewScene = null;
+	    	      stage = (Stage)menuItemInicio.getParentPopup().getOwnerWindow();
+	    	     myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml"));
+	            
+	             Scene scene = new Scene(myNewScene);
 	             stage.setScene(scene);
-	             stage.show();    
+	             stage.setTitle("Painel Gestor CondSoft");
+	             stage.show();     
+	               
 	             
 	            
 	           } catch (IOException ex) {

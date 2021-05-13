@@ -113,11 +113,11 @@ public class MenuController implements Initializable{
     		 Stage stage = null;
     	     Parent myNewScene = null;
     	     stage = (Stage) Register.getScene().getWindow();
-             myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewUserRegistrer.fxml"));
+             myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewCheckOnTenant.fxml"));
             
              Scene scene = new Scene(myNewScene);
              stage.setScene(scene);
-             stage.setTitle("Register");
+             stage.setTitle("Registrados");
              stage.show();     
              
             
