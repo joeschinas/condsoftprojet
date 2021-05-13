@@ -11,12 +11,16 @@ public class Perfil extends Person{
 	private String senha;
 	
 	
-	public Perfil(Integer id, Integer cpf, Date dateNasc, String email, String name, String nickName, String senha) {
-		super(id, cpf, dateNasc, email, name);
+	
+	
+
+	public Perfil(Integer id, Integer cpf, Date dateNasc, String email, String name, model.entities.Apartment apartment,
+			model.entities.Apartment bloco, String nickName, String senha) {
+		super(id, cpf, dateNasc, email, name, apartment, bloco);
 		this.nickName = nickName;
 		this.senha = senha;
 	}
-	
+
 
 	@Override
 	public Integer getId() {

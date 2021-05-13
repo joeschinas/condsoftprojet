@@ -1,4 +1,4 @@
-package model.dao.impl;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,13 +6,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class JdbcDAO {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/mydb?characterEncoding=utf8&useSSL=false";
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "root";
     private static final String SELECT_QUERY = "SELECT * FROM usuario WHERE nickname = ? and senha = ?";
+   
+    private static Connection conn = null;
+    
+    public static Connection getConnection()  {
+    	
+			if (conn == null) {
 
+			try {
+				
+					conn = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+				
+			} catch (SQLException erro) {
+				throw new DbException(erro.getMessage());
+
+			}
+				
+		}
+		return conn;
+	}
+    	
+    
     public boolean validate(String nickname, String senha) throws SQLException {
     	/*System.out.println("NICK: " + nickname);
     	System.out.println("SENHA: " + senha);*/

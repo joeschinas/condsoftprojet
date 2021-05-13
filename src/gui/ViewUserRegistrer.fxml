@@ -10,8 +10,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="633.0" prefWidth="541.0" type="AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserController">
+<fx:root type="AnchorPane" prefHeight="633.0" prefWidth="541.0"  xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserController">
    <children>
+      <MenuBar fx:id="menuItemInicio" layoutX="-2.0" layoutY="2.0" prefHeight="25.0" prefWidth="541.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Inicio" />
+                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Logout" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
       <Label layoutX="185.0" layoutY="53.0" prefHeight="26.0" prefWidth="137.0" text="CSP GESTOR">
          <font>
             <Font name="Calibri Bold" size="21.0" />
@@ -53,16 +64,5 @@
          </font>
       </Label>
       <Button layoutX="210.0" layoutY="570.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Salvar" />
-      <MenuBar fx:id="menuItemInicio" layoutX="-2.0" layoutY="2.0" prefHeight="25.0" prefWidth="541.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Inicio" />
-                  <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
    </children>
 </fx:root>

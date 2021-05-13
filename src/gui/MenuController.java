@@ -88,15 +88,17 @@ public class MenuController implements Initializable{
     		
     	try {
     			    
-    		//add you loading or delays - ;-)
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            //stage.setMaximized(true);
-            stage.close();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("gui/ViewUserRegistrer.fxml")));
-            stage.setScene(scene);
-            stage.show(); 	                                
-    			
+    		 Stage stage = null;
+    	     Parent myNewScene = null;
+    	     stage = (Stage) Register.getScene().getWindow();
+             myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewUserRegistrer.fxml"));
+            
+             Scene scene = new Scene(myNewScene);
+             stage.setScene(scene);
+             stage.setTitle("Register");
+             stage.show();     
+             
+            
            } catch (IOException ex) {
                System.err.println(ex.getMessage());
            }

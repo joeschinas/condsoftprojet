@@ -5,6 +5,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.mysql.jdbc.Connection;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,7 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
+import model.dao.JdbcDAO;
 import model.dao.impl.*;
 
 public class LoginController implements Initializable {
@@ -73,11 +75,14 @@ public class LoginController implements Initializable {
     @FXML
     public void login(ActionEvent event) throws SQLException {
 
-      /* Window owner = submitButton.getScene().getWindow();
-
-        System.out.println(nicknameField.getText());
-        System.out.println(senhaField.getText());*/
-    	
+      /* Window owner = submitButton.getScene().getWindow();*/
+ /*   	Connection conn =null;
+    	conn = (Connection) JdbcDAO.getConnection();
+    	if(conn!=null) {
+    		
+        setLblError(Color.GREEN,"Banco Conectado");
+        
+    	}*/
     	String nulo = combBoxlist.getValue();
     	
         if (nicknameField.getText().isEmpty()) {
@@ -107,6 +112,8 @@ public class LoginController implements Initializable {
         if (!flag) {
         	
             setLblError(Color.TOMATO, "Digite Usuario e senha corretamente.");
+            
+           JdbcDAO.getConnection();
         } 
         infoBox(event);
         
