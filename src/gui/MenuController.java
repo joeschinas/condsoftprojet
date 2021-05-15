@@ -9,39 +9,64 @@ import java.util.ResourceBundle;
 import application.Main;
 import gui.util.Alerts;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class MenuController implements Initializable{
+	//private static final String  = null;
+
 	@FXML
 	private AnchorPane root_AnchorPane;
+
 	@FXML
 	private Button Apartamento;
 	@FXML
 	private Button listTenant;
 	@FXML
 	private Button Register;
-	
 	@FXML
-	private MenuItem menuItemInicio;
-	
-	@FXML	
+	private MenuBar Options;
+
+	@FXML
 	private MenuItem menuItemAbout;
-	
+
 	@FXML
-	private MenuItem menuItemLogout;
+	private void menuItemAbout() {
+		menuItemAbout.setOnAction(action -> {
+			Alerts.showAlert("1", "2", "escorpo do alerta ", AlertType.INFORMATION);
+			return;
+		});
+
+	}
+
 	@FXML
+	private MenuItem menuItemExit;
+
+	@FXML
+	private void menuItemExit() {
+	    
+		menuItemExit.setOnAction(actionEvent -> System.exit(0));
+
+	    return;
+	    }
+	@FXML	
 	private static Scene mainScene;
 	@FXML
 	public static Scene getMainScene() {
@@ -49,22 +74,9 @@ public class MenuController implements Initializable{
 		
 	}
 	@FXML
-	 public void onMenuItemLogout(ActionEvent event) {
-	   	 try {
-
-	            //add you loading or delays - ;-)
-	            Node node = (Node) event.getSource();
-	            Stage stage = (Stage) node.getScene().getWindow();
-	            //stage.setMaximized(true);
-	            stage.close();
-	            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/MainView.fxml")));
-	            stage.setScene(scene);
-	            stage.show();
-
-	        } catch (IOException ex) {
-	            System.err.println(ex.getMessage());
-	        }
-	   	return;
+	 public void onMenu() {
+		
+			
 	    }
 	@FXML
     public void CheckApt(ActionEvent event) {
@@ -106,60 +118,30 @@ public class MenuController implements Initializable{
       	return;
        }
     @FXML
-    public void ListPerson(ActionEvent event ) {
-    		
-    	try {
-    			    
-    		 Stage stage = null;
-    	     Parent myNewScene = null;
-    	     stage = (Stage) Register.getScene().getWindow();
-             myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewCheckOnTenant.fxml"));
-            
-             Scene scene = new Scene(myNewScene);
-             stage.setScene(scene);
-             stage.setTitle("Registrados");
-             stage.show();     
-             
-            
-           } catch (IOException ex) {
-               System.err.println(ex.getMessage());
-           }
-      	return;
-       }
+	public void ListPerson(ActionEvent event) {
+
+		try {
+
+			Stage stage = null;
+			Parent myNewScene = null;
+			stage = (Stage) listTenant.getScene().getWindow();
+			myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewCheckOnTenant.fxml"));
+
+			Scene scene = new Scene(myNewScene);
+			stage.setScene(scene);
+			stage.setTitle("Lista de inquilinos");
+			stage.show();
+
+		} catch (IOException ex) {
+			System.err.println(ex.getMessage());
+		}
+		return;
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	/*@FXML
-	private void onMenuItemAbout() {
-		loadView("/gui/About.fxml");
-		
-	}
 	
-	/*private void loadView(String absoluteName) {
-		
-		
-		try {
-			/*FXMLLoader loader = new  FXMLLoader(getClass().getResource(absoluteName));
-			
-			VBox newVBox = loader.load();
-			
-			Scene mainScene = getMainScene();
-			
-			VBox mainVBox = (VBox) ((Parent) mainScene.getRoot().getParent());
-			
-			Node mainMenu = mainVBox.getChildren().get(0);
-			
-			mainVBox.getChildren().clear();
-			mainVBox.getChildren().add(mainMenu);
-			mainVBox.getChildren().addAll(newVBox.getChildren());
-			
-		} catch (IOException e) {
-			Alerts.showAlert("IO Exception", "Error loading view",e.getMessage(), AlertType.ERROR);
-		}
-		
-	}*/
-	 
 }

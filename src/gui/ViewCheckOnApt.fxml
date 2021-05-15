@@ -11,13 +11,11 @@
 
 <AnchorPane prefHeight="465.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AptController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="65.0">
+      <MenuBar layoutY="2.0" onDragDetected="#onItemInicio">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Inicio" />
-                  <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="menuItemInicio" mnemonicParsing="false" onAction="#onItemInicio" text="Inicio" />
                </items>
             </Menu>
          </menus>
@@ -31,5 +29,10 @@
       <ScrollPane layoutX="47.0" layoutY="143.0" prefHeight="283.0" prefWidth="304.0" />
       <Button layoutX="47.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Disponivel" />
       <Button layoutX="416.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Alugados" />
+      <Label layoutX="328.0" layoutY="13.0" prefHeight="17.0" prefWidth="219.0" text="GSP Gestor">
+         <font>
+            <Font name="Calibri Bold" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

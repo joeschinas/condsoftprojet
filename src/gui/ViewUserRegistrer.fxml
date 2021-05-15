@@ -12,16 +12,14 @@
 
 <AnchorPane fx:id="root_AnchorPane" prefHeight="633.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserController">
    <children>
-      <MenuBar layoutX="-2.0" layoutY="2.0" prefHeight="25.0" prefWidth="541.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem fx:id="menuItemInicio" mnemonicParsing="false" onAction="#onItemInicio" text="Inicio" />
-                  <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
-               </items>
-            </Menu>
-         </menus>
+      <MenuBar layoutY="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuItemInicio" mnemonicParsing="false" onAction="#onItemInicio" text="Inicio" />
+            </items>
+          </Menu>
+        </menus>
       </MenuBar>
       <Label layoutX="185.0" layoutY="53.0" prefHeight="26.0" prefWidth="137.0" text="CSP GESTOR">
          <font>

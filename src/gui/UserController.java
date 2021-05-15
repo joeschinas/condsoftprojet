@@ -21,14 +21,7 @@ public class UserController {
 
 	@FXML
 	private MenuItem menuItemInicio;
-	
-	@FXML	
-	private MenuItem menuItemAbout;
-	
-	@FXML
-	private MenuItem menuItemLogout;
-	 
-	
+
 
 
 	 public void onItemInicio(ActionEvent event) {
@@ -38,7 +31,7 @@ public class UserController {
 	   		//add you loading or delays - ;-)
 	   				Stage stage = null;
 	    	     Parent myNewScene = null;
-	    	      stage = (Stage)menuItemInicio.getParentPopup().getOwnerWindow();
+	    	     stage = (Stage) menuItemInicio.getParentPopup().getOwnerWindow();
 	    	     myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewMenu.fxml"));
 	            
 	             Scene scene = new Scene(myNewScene);
