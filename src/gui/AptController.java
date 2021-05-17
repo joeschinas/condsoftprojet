@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import com.mysql.jdbc.Connection;
 
+import gui.util.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -42,11 +43,11 @@ public class AptController implements Initializable {
 	@FXML
 	private TableColumn<Apartment, Integer> tableColumnApt;
 	@FXML
-	private TableColumn<Apartment, String> tableColumnRoom;
+	private TableColumn<Apartment, Integer> tableColumnRoom;
 	@FXML
-	private TableColumn<Apartment, String> tableColumnBathRoom;
+	private TableColumn<Apartment, Integer> tableColumnBathRoom;
 	@FXML
-	private TableColumn<Apartment, String> tableColumnGarage;
+	private TableColumn<Apartment, Integer> tableColumnGarage;
 	@FXML
 	private TableColumn<Apartment, String> tableColumnForRent;
 	@FXML
@@ -55,26 +56,25 @@ public class AptController implements Initializable {
 	private Button available;
 	@FXML
 	private Button forRent;
-	@FXML
-	private ObservableList<Apartment> obsList;
-	@FXML
-	private void actionAvailable() {}
-	@FXML
+	
+	ObservableList<Apartment> obsList = FXCollections.observableArrayList();;
+
+	/*@FXML
+	/*private void actionAvailable() {}	@FXML
+	
 	public void setApartmentService(ApartmentService service) {
 		this.service = service;
-	}
-	@FXML
+	}*/
+	/*@FXML
 	public void updateTableView() {
 		if(service ==null) {
 		throw new IllegalStateException("Service was null");
 		}
-		List<Apartment> list = service.findAll();
-		obsList = FXCollections.observableArrayList(list);
+		List<Apartment>obsList = FXCollections.observableArrayList(list);
 		tableViewApartment.setItems(obsList);
-	}
-	@FXML
-	private void actionForRent(
-			) {}
+	}*/
+	
+	
 
 
 	 
@@ -106,34 +106,36 @@ public class AptController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		
+		 ObservableList<Apartment> obsList = FXCollections.observableArrayList();;
 		try  {
+			
+			
 			Connection conn = (Connection) JdbcDAO.getConnection(); 
 			
 			ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM apartamentos");
 			
 			while(rs.next()) {
-			obsList.add(new Apartment(rs.getInt("IdApartamento"), 
+			obsList.add(new Apartment
+					(rs.getInt("IdApartamento"), 
 					rs.getInt("Quartos"),
 					rs.getInt("banheiro"), 
 					rs.getInt("VagaGaragem"),
 					rs.getString("Alugado"), 
 					rs.getString("OBS")));
 			}
-			tableViewApartment.setItems(obsList);
+			
 		}catch(SQLException ex) {
 			
-			
-		}
+			Alerts.showAlert(null, "Erro", "Erros banco", null);
+		}				
 		
-			
-	}
-	private void initializeNode() {
-		tableColumnApt.setCellValueFactory(new PropertyValueFactory<>("apt"));
+		tableColumnApt.setCellValueFactory(new PropertyValueFactory<>("Apt"));
 		tableColumnRoom.setCellValueFactory(new PropertyValueFactory<>("room"));
 		tableColumnBathRoom.setCellValueFactory(new PropertyValueFactory<>("bathroom"));
 		tableColumnGarage.setCellValueFactory(new PropertyValueFactory<>("garage"));
-		tableColumnForRent.setCellValueFactory(new PropertyValueFactory<>("garage"));
+		tableColumnForRent.setCellValueFactory(new PropertyValueFactory<>("forRent"));
 		tableColumnObs.setCellValueFactory(new PropertyValueFactory<>("obs"));
-		
+		tableViewApartment.setItems(obsList);
 	}
+	
 }
