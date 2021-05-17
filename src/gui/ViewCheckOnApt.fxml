@@ -6,11 +6,18 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="465.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AptController">
    <children>
+      <Label layoutX="328.0" layoutY="51.0" prefHeight="21.0" prefWidth="126.0" text="Apartamentos">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
       <MenuBar layoutY="2.0" onDragDetected="#onItemInicio">
          <menus>
             <Menu mnemonicParsing="false" text="File">
@@ -20,15 +27,34 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Label layoutX="328.0" layoutY="51.0" prefHeight="21.0" prefWidth="126.0" text="Apartamentos">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <ScrollPane layoutX="416.0" layoutY="143.0" prefHeight="283.0" prefWidth="304.0" />
-      <ScrollPane layoutX="47.0" layoutY="143.0" prefHeight="283.0" prefWidth="304.0" />
       <Button layoutX="47.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Disponivel" />
+      <ScrollPane layoutX="21.0" layoutY="143.0" prefHeight="318.0" prefWidth="347.0">
+         <content>
+            <TableView prefHeight="320.0" prefWidth="343.0">
+              <columns>
+                <TableColumn prefWidth="92.0" text="Apartamento" />
+                <TableColumn prefWidth="58.0" text="Quartos" />
+                  <TableColumn prefWidth="75.0" text="Banheiro" />
+                  <TableColumn prefWidth="92.0" text="VagaGaragem" />
+                  <TableColumn prefWidth="75.0" text="Alugado" />
+                  <TableColumn prefWidth="75.0" text="OBS" />
+              </columns>
+            </TableView>
+         </content></ScrollPane>
       <Button layoutX="416.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Alugados" />
+      <ScrollPane layoutX="390.0" layoutY="143.0" prefHeight="318.0" prefWidth="347.0">
+         <content>
+            <TableView prefHeight="320.0" prefWidth="343.0">
+               <columns>
+                  <TableColumn prefWidth="92.0" text="apt" />
+                  <TableColumn prefWidth="58.0" text="room" />
+                  <TableColumn prefWidth="75.0" text="bathroom" />
+                  <TableColumn prefWidth="92.0" text="garage" />
+                  <TableColumn prefWidth="75.0" text="forrent" />
+                  <TableColumn prefWidth="75.0" text="obs" />
+               </columns>
+            </TableView>
+         </content></ScrollPane>
       <Label layoutX="328.0" layoutY="13.0" prefHeight="17.0" prefWidth="219.0" text="GSP Gestor">
          <font>
             <Font name="Calibri Bold" size="23.0" />

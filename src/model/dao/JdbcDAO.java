@@ -33,7 +33,32 @@ public class JdbcDAO {
 		}
 		return conn;
 	}
-    	
+   
+    public boolean tableView(String nickname, String senha) throws SQLException {
+    	/*System.out.println("NICK: " + nickname);
+    	System.out.println("SENHA: " + senha);*/
+
+        try (Connection connection = DriverManager
+            .getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY)) {
+            preparedStatement.setString(1, nickname);
+            preparedStatement.setString(2, senha);
+
+          //  System.out.println(preparedStatement);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+
+
+        } catch (SQLException e) {
+            // print SQL exception information
+            printSQLException(e);
+        }
+        return false;
+    }
     
     public boolean validate(String nickname, String senha) throws SQLException {
     	/*System.out.println("NICK: " + nickname);

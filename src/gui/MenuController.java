@@ -3,8 +3,7 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
+import java.util.function.Consumer;
 
 import application.Main;
 import gui.util.Alerts;
@@ -28,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.service.ApartmentService;
 
 public class MenuController implements Initializable{
 	//private static final String  = null;
@@ -65,31 +65,23 @@ public class MenuController implements Initializable{
 		menuItemExit.setOnAction(actionEvent -> System.exit(0));
 
 	    return;
-	    }
-	@FXML	
-	private static Scene mainScene;
-	@FXML
-	public static Scene getMainScene() {
-		return mainScene;
-		
 	}
-	@FXML
-	 public void onMenu() {
 		
-			
-	    }
+	
 	@FXML
-    public void CheckApt(ActionEvent event) {
+    public void Apartment(ActionEvent event) {
    	 try {
 
-            //add you loading or delays - ;-)
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            //stage.setMaximized(true);
-            stage.close();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui/ViewCheckOnApt.fxml")));
-            stage.setScene(scene);
-            stage.show();
+   		Stage stage = null;
+	     Parent myNewScene = null;
+	     stage = (Stage) Register.getScene().getWindow();
+	     myNewScene = FXMLLoader.load(getClass().getResource("/gui/ViewCheckOnApt.fxml"));
+       
+        Scene scene = new Scene(myNewScene);
+        stage.setScene(scene);
+        stage.setTitle("Lista de Apartamentos");
+        stage.show();  
+         
 
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
@@ -137,6 +129,8 @@ public class MenuController implements Initializable{
 		}
 		return;
 	}
+
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
